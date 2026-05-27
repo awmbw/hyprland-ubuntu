@@ -1,0 +1,200 @@
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║              Waybar — Deep Ocean Theme                       ║
+   ║              Deep navy · Turquoise accents · Sage green      ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+
+/* ── Reset ──────────────────────────────────────── */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", "Noto Sans", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Bar ────────────────────────────────────────── */
+window#waybar {
+    background: rgba(13, 43, 62, 0.85);
+    border-radius: 14px;
+    border: 1px solid rgba(59, 165, 201, 0.2);
+    color: #d4dce8;
+    transition: background 0.3s ease;
+}
+
+window#waybar.hidden {
+    opacity: 0;
+}
+
+tooltip {
+    background: rgba(13, 43, 62, 0.95);
+    border: 1px solid rgba(59, 165, 201, 0.3);
+    border-radius: 10px;
+    color: #d4dce8;
+}
+
+tooltip label {
+    color: #d4dce8;
+    font-size: 12px;
+}
+
+/* ── Workspaces ─────────────────────────────────── */
+#workspaces {
+    margin-left: 6px;
+}
+
+#workspaces button {
+    color: rgba(212, 220, 232, 0.4);
+    padding: 2px 8px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    background: transparent;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+#workspaces button:hover {
+    color: rgba(212, 220, 232, 0.8);
+    background: rgba(59, 165, 201, 0.1);
+}
+
+#workspaces button.active {
+    color: #3ba5c9;
+    background: rgba(59, 165, 201, 0.15);
+    text-shadow: 0 0 8px rgba(59, 165, 201, 0.5);
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: #d4a844;
+    background: rgba(212, 168, 68, 0.15);
+}
+
+/* ── Window Title ───────────────────────────────── */
+#window {
+    color: rgba(212, 220, 232, 0.6);
+    padding: 0 12px;
+    margin-left: 8px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+window#waybar.empty #window {
+    background: transparent;
+    padding: 0;
+}
+
+/* ── Clock ──────────────────────────────────────── */
+#clock {
+    color: #d4dce8;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 0 14px;
+    letter-spacing: 0.5px;
+}
+
+/* ── Module Defaults ────────────────────────────── */
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+    color: rgba(212, 220, 232, 0.75);
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    transition: all 0.2s ease;
+}
+
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+    color: #d4dce8;
+    background: rgba(59, 165, 201, 0.1);
+}
+
+/* ── CPU ────────────────────────────────────────── */
+#cpu {
+    color: rgba(138, 180, 52, 0.85);
+}
+
+/* ── Memory ─────────────────────────────────────── */
+#memory {
+    color: rgba(59, 165, 201, 0.85);
+}
+
+/* ── Audio ──────────────────────────────────────── */
+#pulseaudio {
+    color: rgba(212, 196, 138, 0.85);
+}
+
+#pulseaudio.muted {
+    color: rgba(212, 220, 232, 0.3);
+}
+
+/* ── Network ────────────────────────────────────── */
+#network {
+    color: rgba(100, 200, 180, 0.85);
+}
+
+#network.disconnected {
+    color: rgba(212, 220, 232, 0.3);
+}
+
+/* ── Battery ────────────────────────────────────── */
+#battery {
+    color: rgba(138, 180, 52, 0.85);
+}
+
+#battery.warning {
+    color: rgba(212, 168, 68, 0.9);
+}
+
+#battery.critical {
+    color: rgba(196, 90, 90, 0.9);
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: rgba(138, 180, 52, 0.9);
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* ── Tray ───────────────────────────────────────── */
+#tray {
+    background: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* ── Power ──────────────────────────────────────── */
+#custom-power {
+    color: rgba(196, 90, 90, 0.7);
+    padding: 0 12px 0 8px;
+    margin: 4px 4px 4px 2px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+    color: #c45a5a;
+    background: rgba(196, 90, 90, 0.12);
+}

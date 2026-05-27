@@ -1,0 +1,46 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║              Starship Prompt — Deep Ocean                     ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character"""
+
+right_format = """$cmd_duration"""
+
+[character]
+success_symbol = "[❯](bold #3ba5c9)"
+error_symbol = "[❯](bold #d47070)"
+vimcmd_symbol = "[❮](bold #8ab434)"
+
+[directory]
+style = "bold #52bde0"
+truncation_length = 3
+truncate_to_repo = true
+fish_style_pwd_dir_length = 1
+
+[git_branch]
+symbol = " "
+style = "bold #9a7acf"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "bold #d4c48a"
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[cmd_duration]
+min_time = 2_000
+format = "[$duration]($style) "
+style = "bold #1a4a5e"
