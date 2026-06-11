@@ -152,7 +152,7 @@ apply_template() {
 }
 
 # Base repo path
-REPO_DIR="/home/aum/hyprland-ubuntu"
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # Waybar
 apply_template "$REPO_DIR/waybar/style.css.tpl" "$REPO_DIR/waybar/style.css"

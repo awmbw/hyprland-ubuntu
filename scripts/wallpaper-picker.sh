@@ -3,18 +3,29 @@
 
 # Directories to scan
 DIRS=(
-    "/home/aum/Backup/Old laptop backup"
-    "/home/aum/Backup/Old laptop backup/wallpapers"
-    "/home/aum/Backup/Old laptop backup/light"
-    # Include the active_theme dir inside wallpapers just in case it's missed by maxdepth 1
-    "/home/aum/Backup/Old laptop backup/wallpapers/active_theme"
+    "$HOME/Pictures/Wallpapers"
+    "$HOME/Backup/Old laptop backup/wallpapers"
+    "$HOME/Backup/Old laptop backup/light"
+    "$HOME/Backup/Old laptop backup/wallpapers/active_theme"
+    "$HOME/Backup/Old laptop backup"
 )
 
+# Only search directories that exist
+EXISTING_DIRS=()
+for dir in "${DIRS[@]}"; do
+    if [ -d "$dir" ]; then
+        EXISTING_DIRS+=("$dir")
+    fi
+done
+
 # Find all image files
-WALLPAPERS=$(find "${DIRS[@]}" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) 2>/dev/null | sort -u)
+WALLPAPERS=""
+if [ ${#EXISTING_DIRS[@]} -gt 0 ]; then
+    WALLPAPERS=$(find "${EXISTING_DIRS[@]}" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) 2>/dev/null | sort -u)
+fi
 
 if [ -z "$WALLPAPERS" ]; then
-    notify-send "Wallpaper Picker" "No wallpapers found in configured directories."
+    notify-send "Wallpaper Picker" "No wallpapers found. Please put some in ~/Pictures/Wallpapers"
     exit 1
 fi
 

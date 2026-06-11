@@ -59,6 +59,17 @@ Here are a few essential shortcuts to get started:
 - `Super + W`: Close Window
 - `Super + Shift + Q`: Exit Hyprland
 
+## Dynamic Auto-Theming
+This setup includes a custom, highly-optimized theming engine inspired by Dusky OS. When you select a wallpaper, the engine uses Python and Pillow to extract dominant colors, generates a beautifully balanced 16-color dark palette, and hot-reloads Waybar, Dunst, Rofi, Kitty, and Hyprland instantly.
+
+**To use the wallpaper picker:**
+1. Create a `Wallpapers` directory inside your `Pictures` folder:
+   ```bash
+   mkdir -p ~/Pictures/Wallpapers
+   ```
+2. Place all your `.jpg`, `.png`, or `.webp` wallpapers inside `~/Pictures/Wallpapers`.
+3. Press **`Super + Shift + W`** to open the fast image thumbnail picker and select your wallpaper. The entire desktop will theme itself perfectly to match!
+
 ## Structure
 
 This repository uses a symlink approach. The `install.sh` script will link configurations from `~/hyprland_ubuntu` to `~/.config/`. This means you can update your configs in the repo directory, commit them, and push them back to GitHub seamlessly.
