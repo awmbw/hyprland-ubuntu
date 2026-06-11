@@ -1,0 +1,37 @@
+/* Wallpaper Picker Theme (Grid Layout) */
+
+@import "theme.rasi"
+
+window {
+    width: 80%;
+    height: 80%;
+}
+
+listview {
+    columns: 4;
+    lines: 4;
+    spacing: 20px;
+    fixed-columns: true;
+    padding: 20px;
+    layout: vertical;
+    scrollbar: true;
+}
+
+element {
+    orientation: vertical;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+element-icon {
+    size: 200px;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    padding: 10px 0 0 0;
+}

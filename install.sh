@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ╔══════════════════════════════════════════════════════════════╗
 # ║       Hyprland Sleek Setup — Ubuntu 26.04 LTS Installer      ║
-# ║       NVIDIA GTX 1650 · Omarchy-inspired · Custom Dotfiles   ║
+# ║       NVIDIA RTX 5060 Max-Q · Omarchy-inspired · Custom Dotfiles   ║
 # ╚══════════════════════════════════════════════════════════════╝
 set -euo pipefail
 
@@ -67,6 +67,13 @@ CORE_PACKAGES=(
     curl
     unzip
     wget
+
+    # Dynamic Theming
+    python3-pil
+    swaybg
+
+    # Screen recording
+    obs-studio
 
     # NVIDIA Wayland support
     libnvidia-egl-wayland1
@@ -143,6 +150,57 @@ if ! command -v zoxide &>/dev/null; then
     ok "zoxide installed"
 else
     ok "zoxide already installed"
+fi
+
+# ── Docker Engine ────────────────────────────────────────────
+if ! command -v docker &>/dev/null; then
+    log "Installing Docker Engine..."
+    sudo apt install -y ca-certificates gnupg
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg 2>/dev/null || true
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt update -qq
+    sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 2>/dev/null || warn "Docker install had issues"
+    sudo usermod -aG docker $USER
+    ok "Docker installed (log out and back in for group to take effect)"
+else
+    ok "Docker already installed"
+fi
+
+# ── Lazydocker ───────────────────────────────────────────────
+if ! command -v lazydocker &>/dev/null; then
+    log "Installing lazydocker..."
+    LAZYDOCKER_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazydocker/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+    if [ -n "$LAZYDOCKER_VERSION" ]; then
+        curl -Lo /tmp/lazydocker.tar.gz "https://github.com/jesseduffield/lazydocker/releases/latest/download/lazydocker_${LAZYDOCKER_VERSION}_Linux_x86_64.tar.gz"
+        tar -xf /tmp/lazydocker.tar.gz -C /tmp lazydocker
+        sudo install /tmp/lazydocker /usr/local/bin/
+        rm -f /tmp/lazydocker /tmp/lazydocker.tar.gz
+        ok "lazydocker installed"
+    else
+        warn "Could not determine lazydocker version, skipping"
+    fi
+else
+    ok "lazydocker already installed"
+fi
+
+# ── Obsidian (AppImage) ──────────────────────────────────────
+OBSIDIAN_DIR="$HOME/Applications"
+OBSIDIAN_BIN="$OBSIDIAN_DIR/Obsidian.AppImage"
+if [ ! -f "$OBSIDIAN_BIN" ]; then
+    log "Installing Obsidian..."
+    mkdir -p "$OBSIDIAN_DIR"
+    OBSIDIAN_VERSION=$(curl -s "https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+    if [ -n "$OBSIDIAN_VERSION" ]; then
+        curl -Lo "$OBSIDIAN_BIN" "https://github.com/obsidianmd/obsidian-releases/releases/download/v${OBSIDIAN_VERSION}/Obsidian-${OBSIDIAN_VERSION}.AppImage"
+        chmod +x "$OBSIDIAN_BIN"
+        ok "Obsidian ${OBSIDIAN_VERSION} installed at $OBSIDIAN_BIN"
+    else
+        warn "Could not determine Obsidian version, skipping"
+    fi
+else
+    ok "Obsidian already installed"
 fi
 
 # ── Starship prompt ──────────────────────────────────────────
@@ -332,8 +390,10 @@ echo -e "${GREEN}${BOLD}  ║              Setup Complete!                      
 echo -e "${GREEN}${BOLD}  ╚══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 echo -e "  ${BOLD}What was installed:${NC}"
-echo -e "  ${CYAN}Desktop${NC}     Hyprland · Waybar · Rofi · Kitty · Dunst"
-echo -e "  ${CYAN}Dev Tools${NC}  Neovim+LazyVim · lazygit · btop · tmux"
+echo -e "  ${CYAN}Desktop${NC}     Hyprland · Waybar · Rofi · Kitty · Dunst · swaybg"
+echo -e "  ${CYAN}Dev Tools${NC}  Neovim+LazyVim · lazygit · lazydocker · btop · tmux"
+echo -e "  ${CYAN}Docker${NC}    Docker Engine · Docker Compose"
+echo -e "  ${CYAN}Apps${NC}      Obsidian · OBS Studio · Google Chrome"
 echo -e "  ${CYAN}Shell${NC}      starship · eza · bat · fd · rg · fzf · zoxide"
 echo -e "  ${CYAN}Theme${NC}     Dark + Teal (#56b6c2) across all components"
 echo ""

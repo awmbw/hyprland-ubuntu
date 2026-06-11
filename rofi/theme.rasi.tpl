@@ -3,13 +3,13 @@
    ╚══════════════════════════════════════════════════════════════╝ */
 
 * {
-    bg:       rgba(29, 21, 26, 0.92);
-    bg-alt:   rgba(41, 30, 37, 0.95);
-    fg:       #e4dcdd;
-    fg-dim:   #a38e90;
-    accent:   #ed5e67;
-    urgent:   #d4a953;
-    border:   rgba(237, 94, 103, 0.25);
+    bg:       rgba({{BG_RGB}}, 0.92);
+    bg-alt:   rgba({{BG_ALT_RGB}}, 0.95);
+    fg:       {{FG}};
+    fg-dim:   {{FG_DIM}};
+    accent:   {{ACCENT}};
+    urgent:   {{WARNING}};
+    border:   rgba({{ACCENT_RGB}}, 0.25);
 
     background-color: transparent;
     text-color:       @fg;
@@ -72,7 +72,7 @@ element {
 }
 
 element selected {
-    background-color: rgba(237, 94, 103, 0.15);
+    background-color: rgba({{ACCENT_RGB}}, 0.15);
     text-color:       @accent;
 }
 

@@ -14,7 +14,6 @@ Super + B                Browser (Chrome)
 Super + E               File Manager (Thunar)
 Super + O               Obsidian
 Super + A               Antigravity IDE
-Super + Shift + A       Antigravity 2.0
 Super + R               OBS Studio
 Super + Shift + D       Lazydocker
 Super + C               Clipboard History

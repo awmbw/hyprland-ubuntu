@@ -15,10 +15,10 @@
 
 /* ── Bar ────────────────────────────────────────── */
 window#waybar {
-    background: rgba(29, 21, 26, 0.85);
+    background: rgba({{BG_RGB}}, 0.85);
     border-radius: 14px;
-    border: 1px solid rgba(237, 94, 103, 0.2);
-    color: #e4dcdd;
+    border: 1px solid rgba({{ACCENT_RGB}}, 0.2);
+    color: {{FG}};
     transition: background 0.3s ease;
 }
 
@@ -27,14 +27,14 @@ window#waybar.hidden {
 }
 
 tooltip {
-    background: rgba(29, 21, 26, 0.95);
-    border: 1px solid rgba(237, 94, 103, 0.3);
+    background: rgba({{BG_RGB}}, 0.95);
+    border: 1px solid rgba({{ACCENT_RGB}}, 0.3);
     border-radius: 10px;
-    color: #e4dcdd;
+    color: {{FG}};
 }
 
 tooltip label {
-    color: #e4dcdd;
+    color: {{FG}};
     font-size: 12px;
 }
 
@@ -44,7 +44,7 @@ tooltip label {
 }
 
 #workspaces button {
-    color: rgba(228, 220, 221, 0.4);
+    color: rgba({{FG_RGB}}, 0.4);
     padding: 2px 8px;
     margin: 4px 2px;
     border-radius: 8px;
@@ -54,25 +54,25 @@ tooltip label {
 }
 
 #workspaces button:hover {
-    color: rgba(228, 220, 221, 0.8);
-    background: rgba(237, 94, 103, 0.1);
+    color: rgba({{FG_RGB}}, 0.8);
+    background: rgba({{ACCENT_RGB}}, 0.1);
 }
 
 #workspaces button.active {
-    color: #ed5e67;
-    background: rgba(237, 94, 103, 0.15);
-    text-shadow: 0 0 8px rgba(237, 94, 103, 0.5);
+    color: {{ACCENT}};
+    background: rgba({{ACCENT_RGB}}, 0.15);
+    text-shadow: 0 0 8px rgba({{ACCENT_RGB}}, 0.5);
     font-weight: bold;
 }
 
 #workspaces button.urgent {
-    color: #d4a953;
-    background: rgba(212, 169, 83, 0.15);
+    color: {{WARNING}};
+    background: rgba({{WARNING_RGB}}, 0.15);
 }
 
 /* ── Window Title ───────────────────────────────── */
 #window {
-    color: rgba(228, 220, 221, 0.6);
+    color: rgba({{FG_RGB}}, 0.6);
     padding: 0 12px;
     margin-left: 8px;
     font-size: 12px;
@@ -86,7 +86,7 @@ window#waybar.empty #window {
 
 /* ── Clock ──────────────────────────────────────── */
 #clock {
-    color: #e4dcdd;
+    color: {{FG}};
     font-weight: 600;
     font-size: 13px;
     padding: 0 14px;
@@ -100,7 +100,7 @@ window#waybar.empty #window {
 #network,
 #battery,
 #tray {
-    color: rgba(228, 220, 221, 0.75);
+    color: rgba({{FG_RGB}}, 0.75);
     padding: 0 10px;
     margin: 4px 2px;
     border-radius: 8px;
@@ -113,55 +113,55 @@ window#waybar.empty #window {
 #pulseaudio:hover,
 #network:hover,
 #battery:hover {
-    color: #e4dcdd;
-    background: rgba(237, 94, 103, 0.1);
+    color: {{FG}};
+    background: rgba({{ACCENT_RGB}}, 0.1);
 }
 
 /* ── CPU ────────────────────────────────────────── */
 #cpu {
-    color: rgba(57, 197, 57, 0.85); /* Green-ish */
+    color: rgba({{COLOR2_RGB}}, 0.85); /* Green-ish */
 }
 
 /* ── Memory ─────────────────────────────────────── */
 #memory {
-    color: rgba(57, 104, 197, 0.85); /* Blue-ish */
+    color: rgba({{COLOR4_RGB}}, 0.85); /* Blue-ish */
 }
 
 /* ── Audio ──────────────────────────────────────── */
 #pulseaudio {
-    color: rgba(210, 59, 44, 0.85); /* Yellow-ish */
+    color: rgba({{COLOR3_RGB}}, 0.85); /* Yellow-ish */
 }
 
 #pulseaudio.muted {
-    color: rgba(228, 220, 221, 0.3);
+    color: rgba({{FG_RGB}}, 0.3);
 }
 
 /* ── Network ────────────────────────────────────── */
 #network {
-    color: rgba(57, 197, 197, 0.85); /* Cyan-ish */
+    color: rgba({{COLOR6_RGB}}, 0.85); /* Cyan-ish */
 }
 
 #network.disconnected {
-    color: rgba(228, 220, 221, 0.3);
+    color: rgba({{FG_RGB}}, 0.3);
 }
 
 /* ── Battery ────────────────────────────────────── */
 #battery {
-    color: rgba(57, 197, 57, 0.85); /* Green-ish */
+    color: rgba({{COLOR2_RGB}}, 0.85); /* Green-ish */
 }
 
 #battery.warning {
-    color: rgba(212, 169, 83, 0.9);
+    color: rgba({{WARNING_RGB}}, 0.9);
 }
 
 #battery.critical {
-    color: rgba(203, 77, 77, 0.9);
+    color: rgba({{ERROR_RGB}}, 0.9);
     animation: blink 1.5s ease-in-out infinite;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: rgba(57, 197, 57, 0.9);
+    color: rgba({{COLOR2_RGB}}, 0.9);
 }
 
 @keyframes blink {
@@ -185,7 +185,7 @@ window#waybar.empty #window {
 
 /* ── Power ──────────────────────────────────────── */
 #custom-power {
-    color: rgba(203, 77, 77, 0.7);
+    color: rgba({{ERROR_RGB}}, 0.7);
     padding: 0 12px 0 8px;
     margin: 4px 4px 4px 2px;
     border-radius: 8px;
@@ -194,6 +194,6 @@ window#waybar.empty #window {
 }
 
 #custom-power:hover {
-    color: #cb4d4d;
-    background: rgba(203, 77, 77, 0.12);
+    color: {{ERROR}};
+    background: rgba({{ERROR_RGB}}, 0.12);
 }

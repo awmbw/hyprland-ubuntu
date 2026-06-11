@@ -25,7 +25,7 @@
     horizontal_padding = 16
     text_icon_padding = 16
     frame_width = 1
-    frame_color = "rgba(237, 94, 103, 0.25)"
+    frame_color = "rgba({{ACCENT_RGB}}, 0.25)"
     corner_radius = 12
     gap_size = 6
     separator_height = 1
@@ -68,27 +68,27 @@
 
 # ── Urgency Levels ────────────────────────────────
 [urgency_low]
-    background = "rgba(29, 21, 26, 0.9)"
-    foreground = "#e4dcdd"
-    frame_color = "rgba(237, 94, 103, 0.4)"
-    highlight = "#ed5e67"
+    background = "rgba({{BG_RGB}}, 0.9)"
+    foreground = "{{FG}}"
+    frame_color = "rgba({{ACCENT_RGB}}, 0.4)"
+    highlight = "{{ACCENT}}"
     timeout = 5
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "rgba(29, 21, 26, 0.9)"
-    foreground = "#e4dcdd"
-    frame_color = "rgba(237, 94, 103, 0.6)"
-    highlight = "#ed5e67"
+    background = "rgba({{BG_RGB}}, 0.9)"
+    foreground = "{{FG}}"
+    frame_color = "rgba({{ACCENT_RGB}}, 0.6)"
+    highlight = "{{ACCENT}}"
     timeout = 8
     default_icon = dialog-information
     override_pause_level = 30
 
 [urgency_critical]
-    background = "rgba(29, 21, 26, 0.95)"
-    foreground = "#cb4d4d"
-    frame_color = "rgba(203, 77, 77, 0.6)"
-    highlight = "#cb4d4d"
+    background = "rgba({{BG_RGB}}, 0.95)"
+    foreground = "{{ERROR}}"
+    frame_color = "rgba({{ERROR_RGB}}, 0.6)"
+    highlight = "{{ERROR}}"
     timeout = 0
     default_icon = dialog-warning
     override_pause_level = 60

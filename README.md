@@ -13,6 +13,7 @@ A clean, developer-focused, and highly polished Hyprland configuration tailored 
 - **Notifications:** Dunst
 - **Lock Screen:** Hyprlock
 - **Idle Manager:** Hypridle
+- **Dynamic Theming:** Custom Dusky-inspired auto-theming engine (Pillow + bash orchestrator)
 - **Shell:** Bash with Starship prompt
 - **Editor:** Neovim + LazyVim
 - **NVIDIA Support:** Configured out-of-the-box for smooth NVIDIA Wayland performance
@@ -54,6 +55,7 @@ Here are a few essential shortcuts to get started:
 - `Super + Return`: Terminal (Kitty)
 - `Super + Space`: App Launcher (Rofi)
 - `Super + B`: Browser (Chrome)
+- `Super + Shift + W`: Wallpaper Picker (Instantly auto-themes the entire system!)
 - `Super + W`: Close Window
 - `Super + Shift + Q`: Exit Hyprland
 

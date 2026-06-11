@@ -17,19 +17,19 @@ input-field {
     dots_spacing = 0.2
     dots_center = true
     dots_rounding = -1
-    outer_color = rgba(237, 94, 103, 0.4)
-    inner_color = rgba(29, 21, 26, 0.85)
-    font_color = rgb(228, 220, 221)
+    outer_color = rgba({{ACCENT_RGB}}, 0.4)
+    inner_color = rgba({{BG_RGB}}, 0.85)
+    font_color = rgb({{FG_RGB}})
     fade_on_empty = true
     fade_timeout = 2000
     placeholder_text = <i>  Enter Password...</i>
     hide_input = false
     rounding = 12
-    check_color = rgba(106, 191, 63, 0.4)
-    fail_color = rgba(203, 77, 77, 0.4)
+    check_color = rgba({{SUCCESS_RGB}}, 0.4)
+    fail_color = rgba({{ERROR_RGB}}, 0.4)
     fail_text = <i>$FAIL</i>
     fail_transition = 300
-    capslock_color = rgba(212, 169, 83, 0.4)
+    capslock_color = rgba({{WARNING_RGB}}, 0.4)
     position = 0, -120
     halign = center
     valign = center
@@ -38,7 +38,7 @@ input-field {
 label {
     monitor =
     text = $TIME
-    color = rgba(228, 220, 221, 0.95)
+    color = rgba({{FG_RGB}}, 0.95)
     font_size = 72
     font_family = JetBrainsMono Nerd Font Bold
     position = 0, 80
@@ -52,7 +52,7 @@ label {
 label {
     monitor =
     text = cmd[update:3600000] date +"%A, %B %d"
-    color = rgba(228, 220, 221, 0.6)
+    color = rgba({{FG_RGB}}, 0.6)
     font_size = 16
     font_family = JetBrainsMono Nerd Font
     position = 0, 20
@@ -63,7 +63,7 @@ label {
 label {
     monitor =
     text = Hi, $USER
-    color = rgba(237, 94, 103, 0.8)
+    color = rgba({{ACCENT_RGB}}, 0.8)
     font_size = 14
     font_family = JetBrainsMono Nerd Font
     position = 0, -60

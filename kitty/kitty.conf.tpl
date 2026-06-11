@@ -45,46 +45,46 @@ tab_bar_style       powerline
 tab_powerline_style slanted
 
 # ── Color Scheme — Auto-Generated ─────────────────────────────
-foreground          #e4dcdd
-background          #1d151a
-selection_foreground  #1d151a
-selection_background  #ed5e67
+foreground          {{FG}}
+background          {{BG}}
+selection_foreground  {{SELECTION_FG}}
+selection_background  {{SELECTION_BG}}
 
-cursor              #ed5e67
-cursor_text_color   #1d151a
+cursor              {{CURSOR}}
+cursor_text_color   {{CURSOR_TEXT}}
 
-url_color           #ed5e67
+url_color           {{ACCENT}}
 
 # Tab bar
-active_tab_foreground   #1d151a
-active_tab_background   #ed5e67
-inactive_tab_foreground #a38e90
-inactive_tab_background #291e25
+active_tab_foreground   {{BG}}
+active_tab_background   {{ACCENT}}
+inactive_tab_foreground {{FG_DIM}}
+inactive_tab_background {{BG_ALT}}
 
 # Normal colors
-color0  #1d151a
-color1  #d22c37
-color2  #39c539
-color3  #d23b2c
-color4  #3968c5
-color5  #936b84
-color6  #39c5c5
-color7  #e4dcdd
+color0  {{COLOR0}}
+color1  {{COLOR1}}
+color2  {{COLOR2}}
+color3  {{COLOR3}}
+color4  {{COLOR4}}
+color5  {{COLOR5}}
+color6  {{COLOR6}}
+color7  {{COLOR7}}
 
 # Bright colors
-color8  #291e25
-color9  #e15a63
-color10 #63d863
-color11 #e1665a
-color12 #638ad8
-color13 #ad8fa1
-color14 #63d8d8
-color15 #eeeaea
+color8  {{COLOR8}}
+color9  {{COLOR9}}
+color10 {{COLOR10}}
+color11 {{COLOR11}}
+color12 {{COLOR12}}
+color13 {{COLOR13}}
+color14 {{COLOR14}}
+color15 {{COLOR15}}
 
 # Marks
-mark1_foreground #1d151a
-mark1_background #ed5e67
-mark2_foreground #1d151a
-mark2_background #e0515c
-mark3_foreground #1d151a
-mark3_background #db6256
+mark1_foreground {{BG}}
+mark1_background {{ACCENT}}
+mark2_foreground {{BG}}
+mark2_background {{SECONDARY}}
+mark3_foreground {{BG}}
+mark3_background {{TERTIARY}}
